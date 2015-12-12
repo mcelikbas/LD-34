@@ -49,14 +49,11 @@ public class Movement : MonoBehaviour
                 facing = -1;
             }
         }
+        // mouse is outside blobBoundary
         else if (mousePos.x > blobBoundary.y)
             transform.position = new Vector3(transform.position.x + 1, 0, 0);
         else if (mousePos.x < blobBoundary.x)
             transform.position = new Vector3(transform.position.x - 1, 0, 0);
-
-        //if (!(mousePos.x > transform.position.x && mousePos.x < transform.position.x + blobSize))
-        //    transform.position = new Vector3(Mathf.Round(mousePos.x), 0, 0);
-
 
         Grow();
         Shrink();
@@ -65,7 +62,7 @@ public class Movement : MonoBehaviour
         mouseText.text = "MouseX: " + mousePos.x.ToString("G2") +
                             "\nPlayerX: " + transform.position.x.ToString("G2") +
                             "\nbInf: " + blobBoundary.x.ToString("G2") + "   bSup: " + blobBoundary.y.ToString("G2");
-        scoreText.text = "Score " + "\n" + score;
+        scoreText.text = "Score " + "\n" + score + " ";
     }
 
     void UpdateFacing()
@@ -114,10 +111,9 @@ public class Movement : MonoBehaviour
     {
         if (coll.gameObject.tag == "leftBox")
             score--;
-
-        if (coll.gameObject.tag == "rightBox")
+        else if (coll.gameObject.tag == "rightBox")
             score++;
-
-
+        else if (coll.gameObject.tag == "wall")
+            score++;
     }
 }

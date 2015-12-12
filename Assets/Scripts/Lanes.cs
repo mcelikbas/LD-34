@@ -7,11 +7,10 @@ public class Lanes : MonoBehaviour
     
     void DrawLanes()
     {
-        
-        for (float i = -7f; i < 8f; i++)
+        for (float i = -8f; i < 9f; i++)
         {
-            Vector3 p1 = new Vector3(i, 14, 0);
-            Vector3 p2 = new Vector3(i, -2, 0);
+            Vector3 p1 = new Vector3(i, 13, 0);
+            Vector3 p2 = new Vector3(i, -1, 0);
 
             GL.Begin(GL.LINES);
             lineMat.SetPass(0);
@@ -21,14 +20,12 @@ public class Lanes : MonoBehaviour
             GL.End();
         }
     }
-
-    // To show the lines in the game window whne it is running
+    
     void OnPostRender()
     {
         DrawLanes();
     }
-
-    // To show the lines in the editor
+    
     void OnDrawGizmos()
     {
         DrawLanes();

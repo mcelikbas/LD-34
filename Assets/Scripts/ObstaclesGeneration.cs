@@ -21,30 +21,41 @@ public class ObstaclesGeneration : MonoBehaviour
     private Texture2D levelTexture;
     private int[,] level;
 
+    private GameObject player;
+
     void Start()
     {
+        Camera.main.aspect = 5.0f / 4.0f;
+
         //string file = "Assets/Resources/Levels/Level_1.txt";
         //level = ReadFile(file);
 
         levelTexture = (Texture2D)Resources.Load("Levels/Level_1");
         level = ReadImage(levelTexture);
 
+        player = GameObject.FindGameObjectWithTag("Player");
         //print(levelTexture.GetPixel(0,0));
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
-            ResetLevel();
-        if (row < level.GetLength(0))
+        if (player.GetComponent<Movement>().isPLaying)
         {
-            time += Time.deltaTime;
-            level_time += Time.deltaTime;
-            if (time > timer)
+            if (row < level.GetLength(0))
             {
-                RenderRow(row);
-                row++;
-                time = 0.0f;
+                time += Time.deltaTime;
+                level_time += Time.deltaTime;
+                if (time > timer)
+                {
+                    RenderRow(row);
+                    row++;
+                    time = 0.0f;
+                }
+            }
+            else
+            {
+                player.GetComponent<Movement>().GameOver();
+                player.GetComponent<Movement>().ShowInstructions();
             }
         }
     }
@@ -63,7 +74,7 @@ public class ObstaclesGeneration : MonoBehaviour
     {
         for (int j = 0; j < level.GetLength(1); j++)
         {
-            Vector3 spawnPosition = new Vector3(j + boundaryX[0], 11, 0);
+            Vector3 spawnPosition = new Vector3(j + boundaryX[0], 12, 0);
             //if (level[row][j] == "1" || level[row][j] == "1\r")
             if (level[row, j] == 1)
             {

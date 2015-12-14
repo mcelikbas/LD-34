@@ -15,7 +15,7 @@ public class MovementObstacles : MonoBehaviour {
         else
         {
             if (gameObject.tag == "ground")
-                transform.position = new Vector3(transform.position.x, 12, 0);
+                transform.position = new Vector3(transform.position.x, 13, 0);
             else
                 Destroy(gameObject);
         }

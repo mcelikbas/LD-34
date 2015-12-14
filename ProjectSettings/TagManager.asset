@@ -12,6 +12,7 @@ TagManager:
   - coin
   - gameOver
   - Obstacles
+  - instructions
   layers:
   - Default
   - TransparentFX

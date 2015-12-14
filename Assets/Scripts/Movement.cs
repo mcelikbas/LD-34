@@ -6,7 +6,8 @@ using System;
 public class Movement : MonoBehaviour
 {
 
-    private bool isPLaying = true;
+    public bool isPLaying = false;
+    private bool instructionsShowing = true;
 
     public int blobSize = 1;
     private int maxGrow = 6;
@@ -25,6 +26,7 @@ public class Movement : MonoBehaviour
     public Text scoreBubbleText;
     public GameObject scoreBubblePanel;
     public GameObject gameOver;
+    public GameObject instructions;
 
     void Start()
     {
@@ -77,8 +79,15 @@ public class Movement : MonoBehaviour
             //mouseText.text += "\nbInf: " + blobBoundary.x.ToString("G2") + "   bSup: " + blobBoundary.y.ToString("G2");
             scoreText.text = "Score " + "\n" + score + " ";
         }
-        else if (!isPLaying && Input.GetMouseButtonDown(0))
-            RestartLevel();
+        else if (!isPLaying && instructionsShowing && Input.GetMouseButtonDown(0))
+        {
+            StartGame();
+        }
+        else if (!isPLaying && !instructionsShowing && Input.GetMouseButtonDown(0))
+        {
+            instructions.SetActive(true);
+            instructionsShowing = true;
+        }
     }
 
     void UpdateFacing()
@@ -186,17 +195,25 @@ public class Movement : MonoBehaviour
         scoreBubblePanel.SetActive(false);
     }
 
-    void GameOver()
+    public void GameOver()
     {
-        isPLaying = false;
         gameOver.SetActive(true);
+        isPLaying = false;
         Time.timeScale = 0.0f;
         Camera.main.GetComponent<AudioSource>().Stop();
         blobRenderer.enabled = false;
     }
 
-    void RestartLevel()
+    public void ShowInstructions()
     {
+        instructions.SetActive(true);
+        instructionsShowing = true;
+    }
+
+    void StartGame()
+    {
+        instructions.SetActive(false);
+        instructionsShowing = false;
         isPLaying = true;
         gameOver.SetActive(false);
         Time.timeScale = 1.0f;

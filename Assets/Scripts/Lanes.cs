@@ -7,9 +7,9 @@ public class Lanes : MonoBehaviour
     
     void DrawLanes()
     {
-        for (float i = -8f; i < 9f; i++)
+        for (float i = -8.0f; i < 9.0f; i++)
         {
-            Vector3 p1 = new Vector3(i, 13, 0);
+            Vector3 p1 = new Vector3(i, 12, 0);
             Vector3 p2 = new Vector3(i, -1, 0);
 
             GL.Begin(GL.LINES);
@@ -23,7 +23,7 @@ public class Lanes : MonoBehaviour
     
     void OnPostRender()
     {
-        DrawLanes();
+        //DrawLanes();
     }
     
     void OnDrawGizmos()

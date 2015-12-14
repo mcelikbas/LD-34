@@ -6,9 +6,12 @@ TagManager:
   tags:
   - mouseText
   - scoreText
-  - leftBox
-  - rightBox
   - wall
+  - spikes
+  - ground
+  - coin
+  - gameOver
+  - Obstacles
   layers:
   - Default
   - TransparentFX

@@ -14,14 +14,14 @@ Platform assembly: D:\Game Dev\Unity 3D\Ludum Dare\LD-34\Build\BlobRun_Data\Mana
 Loading D:\Game Dev\Unity 3D\Ludum Dare\LD-34\Build\BlobRun_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: D:\Game Dev\Unity 3D\Ludum Dare\LD-34\Build\BlobRun_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading D:\Game Dev\Unity 3D\Ludum Dare\LD-34\Build\BlobRun_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.055 seconds
+- Completed reload, in  0.051 seconds
 Platform assembly: D:\Game Dev\Unity 3D\Ludum Dare\LD-34\Build\BlobRun_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\Game Dev\Unity 3D\Ludum Dare\LD-34\Build\BlobRun_Data\Managed\System.dll (this message is harmless)
 desktop: 1366x768 120Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.974043 ms
+UnloadTime: 0.707674 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 2c74 -> priority: 1 
-  Thread -> id: 1828 -> priority: 1 
+  Thread -> id: 2acc -> priority: 1 
+  Thread -> id: 1bc8 -> priority: 1 
